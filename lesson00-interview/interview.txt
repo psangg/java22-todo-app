@@ -1,0 +1,132 @@
+1. Phân biệt JDK, JRE, JVM
+- JDK: Java Development Kit: Bộ công cụ phát triển Java
+  + Một hệ thống(OS) muốn thực thi được chương trình, ứng dụng sử dụng code Java
+	thì bắt buộc phải cài đặt JDK
+  + JAVA_HOME
+  +  cmd -> java -version
+  + Nếu chưa cài đặt thì khi bật cmd gõ java --> java is not recognized
+
+- JRE: Java Runtime Environment: Môi trường thực thi Java
+  + Libraries: Thư viện chuẩn có sẵn của Java
+  + JVM
+  Muốn code Java sử dụng các tập lệnh syntax có sẵn trong thư viện mà Java cung cấp
+  Để chạy được chương trình .java -> .class(bytecode) -> execute
+
+
+- JVM: Java Virtual Machine: Máy ảo Java
+  Là 1 chương trình ứng dụng cho phép thực thi chương trình Java
+  Từ bytecode dịch ra mã máy ở các OS tương ứng để OS đó thực thi cho mình
+  
+2. Tại sao Java write once run anywhere
+Vì từ java -> bytecode -> JVM dịch bytecode ra native code(mã máy) tưng ứng trên
+mỗi hệ điều hành để thực thị chương trình
+
+3. Có bao nhiêu loại KDL trong Java
+Có 2 loại Kiểu Dữ Liệu
+- Primitive Type: KDL nguyên thủy
+  Ví dụ: int, float, double, char
+  Giá trị lưu trữ ở STACK
+  Giá trị lưu trữ của nó chỉ có thể là giá trị đơn
+  Ko thể tạo ra KDL nguyên thủy mới
+  Biến KDL NT luôn luôn có giá trị hoặc giá trị mặc định
+  
+- Object Type: KDL đối tượng
+  Ví dụ: Integer, Double, String, Date, Calendar, Item, Employee
+  Giá trị lưu trữ ở HEAP
+  Có thể lưu trữ 1 hoặc nhiều thông tin bên trong KDL đối tượng
+  Có thể tạo ra KDL đối tượng mới: Ví dụ Item, Student ...
+  Biến KDL đối tượng có thể mang giá trị NULL(chưa tạo ô nhớ ở HEAP) / non-null
+
+? Cần biến lưu trữ số nguyên: dùng KDL gì, vì sao ?
+? Cần lưu trữ ngày tháng năm sinh: dùng KDL gì, vì sao ?
+'15/10/1999'
+--> String, KDL(ngày, tháng, năm)
+--> Date, Calendar, LocalDate --> hỗ trợ các hàm tính toàn xử lý
+
+
+4. Cách thức quản lý, lưu trữ, khởi tạo của KDL nguyên thủy và đối tượng - Phân biệt
+
+
+5. Enum là gì, khi nào sử dụng Enum
+
+6. Mục đích của khai báo final cho biến trong Java
+- Khi một biến thêm từ khóa final vào thì giá trị ở STACK của biến đó sẽ ko thể thay
+đổi được
+- Có nghĩa là mình k thể lấy biến đó gán = cho giá trị khác
+
+- KNT -> giá trị k thể thay đổi
+- KĐT -> địa chỉ k thể thay đổi
+      -> giá trị vẫn có thể thay đổi vì lưu ở HEAP
+      
+7. Những vị trí có thể đặt từ khóa final
++ biến: final at stack
++ hàm: không thể override
++ class: ko thể extends
+  VD: Integer, String
+  
+8. Mục đích, ý nghĩa của từ khóa static
+- Static Attribute
+  + Trong class có nhiều thuộc tính, nếu thuộc tính có giá trị sử dụng chung cho
+  tất cả các đối tượng trong class --> thì dùng static
+  + Nếu thuộc tính cần quản lý riêng cho mỗi đối tượng --> non static
+  + VD: Car: id, name, price, model(static)
+
+- Static Method
+  + Nếu hàm phụ thuộc vào đối tượng đang gọi --> non-static
+  + Nếu hàm ko phục thuộc đối tượng đang gọi --> static
+    VD: static int sum(int a, int b) {
+           return a + b;
+        }
+        
+        s1.getName();
+        
+        String getName() {
+           return this.name;
+        }
+         
+9. Có thể khai báo private constructor được ko. Vì sao, cho ví dụ ?
+Được, mỗi class sẽ có public constructor mặc định để khởi tạo đối tượng
+Nếu class nào mình ko muốn class được phép khởi tạo đối tượng --> private constructor
++ util class
++ singleton pattern
++ builder pattern
+
+class MathUtils{
+	
+	private MathUtils() {
+	
+	}
+	
+	public static int sum(int a, int b) {
+	   return a + b;
+	}
+	
+	public static int sub(int a, int b) {
+	   return a - b;
+	}
+	
+}
+
+10. Phân biệt class và object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
